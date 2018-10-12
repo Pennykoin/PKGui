@@ -35,8 +35,8 @@ QString monthsToBlocks(int _months) {
 
 DepositsFrame::DepositsFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::DepositsFrame), m_depositModel(new DepositListModel) {
   m_ui->setupUi(this);
-  m_ui->m_timeSpin->setMinimum(1);
-  m_ui->m_timeSpin->setMaximum(12);
+  m_ui->m_timeSpin->setMinimum(3);
+  m_ui->m_timeSpin->setMaximum(3);
   m_ui->m_timeSpin->setSuffix(QString(" %1").arg(tr("Months")));
   m_ui->m_amountSpin->setSuffix(" " + CurrencyAdapter::instance().getCurrencyTicker().toUpper());
   m_ui->m_amountSpin->setMinimum(CurrencyAdapter::instance().formatAmount(CurrencyAdapter::instance().getDepositMinAmount()).toDouble());
@@ -53,7 +53,7 @@ DepositsFrame::DepositsFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::D
   m_ui->m_tickerLabel2->setText(CurrencyAdapter::instance().getCurrencyTicker().toUpper());
   m_ui->m_feeLabel->setText(tr("%1 %2").arg(CurrencyAdapter::instance().formatAmount(CurrencyAdapter::instance().getMinimumFee())).arg(CurrencyAdapter::instance().getCurrencyTicker().toUpper()));
   
-  m_ui->investmentsBox->hide();  
+
 
   QPixmap pixmap(860,290);
   pixmap.fill(QColor("transparent"));
@@ -77,9 +77,6 @@ DepositsFrame::DepositsFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::D
     a = a + 1;
   } while( a < 13 );  
   
-  m_ui->m_chartBack->setPixmap(pixmap);    
-  m_ui->m_bar->setGeometry(92,221,35,15);
-  m_ui->m_bar->raise();
 
   connect(&WalletAdapter::instance(), &WalletAdapter::walletActualDepositBalanceUpdatedSignal, this, &DepositsFrame::actualDepositBalanceUpdated, Qt::QueuedConnection);
   connect(&WalletAdapter::instance(), &WalletAdapter::walletPendingDepositBalanceUpdatedSignal, this, &DepositsFrame::pendingDepositBalanceUpdated, Qt::QueuedConnection);
@@ -138,19 +135,22 @@ void DepositsFrame::depositClicked()
 
 void DepositsFrame::depositParamsChanged() {
   quint64 amount = CurrencyAdapter::instance().parseAmount(m_ui->m_amountSpin->cleanText());
-  quint32 term = m_ui->m_timeSpin->value();
-  
-quint64 interest = CurrencyAdapter::instance().calculateInterest(amount, term);
-  qreal rate = DepositModel::calculateRate(amount, interest);
+  quint32 term = m_ui->m_timeSpin->value() * 21900;
+
+  quint64 interest = CurrencyAdapter::instance().calculateInterest(amount, term);
+
+  qreal termRate = DepositModel::calculateRate(amount, interest);
+
+
   m_ui->m_interestLabel->setText(QString("+ %1 %2 (%3 %)").arg(CurrencyAdapter::instance().formatAmount(interest)).
-arg(CurrencyAdapter::instance().getCurrencyTicker().toUpper()).arg(QString::number(rate * 100, 'f', 2)));
+    arg(CurrencyAdapter::instance().getCurrencyTicker().toUpper()).arg(QString::number(termRate * 100, 'f', 2)));
 
   /* draw deposit graphs */
   int x = 32 + (m_ui->m_timeSpin->value() * 60);
   int y = 236 - (m_ui->m_timeSpin->value() * 5 * 3);
   int w = 38;
   int h = 0 + (m_ui->m_timeSpin->value() * 5 * 3);
-  m_ui->m_bar->setGeometry(x,y,w,h);
+
 
 }
 

@@ -349,10 +349,6 @@ void WalletAdapter::sendTransaction(const QVector<CryptoNote::WalletLegacyTransf
   }
 }
 
-quint64 WalletAdapter::getNumUnlockedOutputs() const {
-  Q_CHECK_PTR(m_wallet);
-  return m_wallet->getNumUnlockedOutputs();
-}  
 
 
 void WalletAdapter::sendMessage(const QVector<CryptoNote::WalletLegacyTransfer>& _transfers, quint64 _fee, quint64 _mixin,

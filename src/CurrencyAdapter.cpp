@@ -43,8 +43,8 @@ QString CurrencyAdapter::getCurrencyTicker() const {
   return WALLET_CURRENCY_TICKER;
 }
 
-quint64 CurrencyAdapter::calculateInterest(quint64 _amount, quint32 _term) const {
-  return m_currency.calculateInterest(_amount, _term);
+quint64 CurrencyAdapter::calculateInterest(quint64 amount, quint32 term) const {
+  return m_currency.calculateInterest(amount, term);
 }
 
 quint64 CurrencyAdapter::getMinimumFee() const {
