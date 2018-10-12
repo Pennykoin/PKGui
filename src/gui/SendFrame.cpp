@@ -36,13 +36,13 @@
 
 namespace WalletGui {
 
-Q_DECL_CONSTEXPR int DEFAULT_MIXIN = 9;
+Q_DECL_CONSTEXPR int DEFAULT_MIXIN = 7;
 Q_DECL_CONSTEXPR quint64 COMMENT_CHAR_PRICE = 10;
 
 SendFrame::SendFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::SendFrame) {
   m_ui->setupUi(this);
   clearAllClicked();
-  m_ui->m_mixinSlider->setValue(DEFAULT_MIXIN);
+  
 
   connect(&WalletAdapter::instance(), &WalletAdapter::walletSendTransactionCompletedSignal, this, &SendFrame::sendTransactionCompleted,
     Qt::QueuedConnection);
@@ -102,7 +102,6 @@ void SendFrame::clearAllClicked() {
   m_transfers.clear();
   addRecipientClicked();
   m_ui->m_paymentIdEdit->clear();
-  m_ui->m_mixinSlider->setValue(DEFAULT_MIXIN);
   m_ui->m_feeSpin->setValue(m_ui->m_feeSpin->minimum());
 }
 
@@ -228,16 +227,13 @@ void SendFrame::sendClicked() {
     WalletAdapter::instance().sendTransaction(walletTransfers,
                                               fee, 
                                               paymentIdString, 
-                                              m_ui->m_mixinSlider->value(),
+                                              DEFAULT_MIXIN,
                                               walletMessages);
   }
 }
 
 //----------------------------------------------------------------------------------------------
 
-void SendFrame::mixinValueChanged(int _value) {
-  m_ui->m_mixinEdit->setText(QString::number(_value));
-}
 
 void SendFrame::sendTransactionCompleted(CryptoNote::TransactionId _id, bool _error, const QString& _errorText) {
   Q_UNUSED(_id);

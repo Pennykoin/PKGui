@@ -40,7 +40,6 @@ private:
 
   Q_SLOT void addRecipientClicked();
   Q_SLOT void messageTextChanged();
-  Q_SLOT void mixinValueChanged(int _value);
   Q_SLOT void sendClicked();
   Q_SLOT void backClicked();  
   Q_SLOT void ttlCheckStateChanged(int _state);

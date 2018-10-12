@@ -126,7 +126,7 @@ font-family: Poppins;</string>
         <x>0</x>
         <y>0</y>
         <width>1240</width>
-        <height>457</height>
+        <height>485</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="m_send_frame_layout">
@@ -164,29 +164,185 @@ font-family: Poppins;</string>
      <property name="topMargin">
       <number>5</number>
      </property>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_2">
-       <property name="font">
-        <font>
-         <family>Poppins</family>
-         <pointsize>9</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">padding: 3px;</string>
-       </property>
-       <property name="text">
-        <string>Anonimity</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1" colspan="3">
+     <item row="1" column="1" colspan="2">
       <widget class="QLineEdit" name="m_paymentIdEdit">
        <property name="minimumSize">
         <size>
          <width>0</width>
          <height>25</height>
         </size>
+       </property>
+       <property name="palette">
+        <palette>
+         <active>
+          <colorrole role="WindowText">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>170</red>
+             <green>170</green>
+             <blue>170</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Button">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>17</red>
+             <green>17</green>
+             <blue>17</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Text">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>170</red>
+             <green>170</green>
+             <blue>170</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="ButtonText">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>170</red>
+             <green>170</green>
+             <blue>170</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Base">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>17</red>
+             <green>17</green>
+             <blue>17</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Window">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>17</red>
+             <green>17</green>
+             <blue>17</blue>
+            </color>
+           </brush>
+          </colorrole>
+         </active>
+         <inactive>
+          <colorrole role="WindowText">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>170</red>
+             <green>170</green>
+             <blue>170</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Button">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>17</red>
+             <green>17</green>
+             <blue>17</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Text">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>170</red>
+             <green>170</green>
+             <blue>170</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="ButtonText">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>170</red>
+             <green>170</green>
+             <blue>170</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Base">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>17</red>
+             <green>17</green>
+             <blue>17</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Window">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>17</red>
+             <green>17</green>
+             <blue>17</blue>
+            </color>
+           </brush>
+          </colorrole>
+         </inactive>
+         <disabled>
+          <colorrole role="WindowText">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>170</red>
+             <green>170</green>
+             <blue>170</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Button">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>17</red>
+             <green>17</green>
+             <blue>17</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Text">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>170</red>
+             <green>170</green>
+             <blue>170</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="ButtonText">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>170</red>
+             <green>170</green>
+             <blue>170</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Base">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>17</red>
+             <green>17</green>
+             <blue>17</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Window">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>17</red>
+             <green>17</green>
+             <blue>17</blue>
+            </color>
+           </brush>
+          </colorrole>
+         </disabled>
+        </palette>
        </property>
        <property name="font">
         <font>
@@ -215,7 +371,7 @@ font-family: Poppins;</string>
        </property>
       </widget>
      </item>
-     <item row="2" column="3">
+     <item row="2" column="2">
       <spacer name="horizontalSpacer">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -230,92 +386,6 @@ font-family: Poppins;</string>
         </size>
        </property>
       </spacer>
-     </item>
-     <item row="2" column="1">
-      <widget class="QSlider" name="m_mixinSlider">
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>35</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>200</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <family>Poppins</family>
-         <pointsize>9</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">padding: 3px; border: 0px; color: #ddd;</string>
-       </property>
-       <property name="minimum">
-        <number>9</number>
-       </property>
-       <property name="maximum">
-        <number>15</number>
-       </property>
-       <property name="pageStep">
-        <number>1</number>
-       </property>
-       <property name="value">
-        <number>9</number>
-       </property>
-       <property name="tracking">
-        <bool>false</bool>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="tickPosition">
-        <enum>QSlider::TicksBothSides</enum>
-       </property>
-       <property name="tickInterval">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="2">
-      <widget class="QLineEdit" name="m_mixinEdit">
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>38</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>30</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <family>Poppins</family>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">padding: 3px; border: 0px;</string>
-       </property>
-       <property name="text">
-        <string notr="true">9</string>
-       </property>
-       <property name="maxLength">
-        <number>5</number>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
-      </widget>
      </item>
      <item row="0" column="0">
       <widget class="QLabel" name="label">
@@ -397,7 +467,7 @@ font-family: Poppins;</string>
         <string notr="true">color: #aaa; background-color: #333; border-top: 3px solid orange;</string>
        </property>
        <property name="text">
-        <string>SEND FUNDS</string>
+        <string>SEND PK</string>
        </property>
       </widget>
      </item>
@@ -531,12 +601,10 @@ font-family: Poppins;</string>
  </widget>
  <tabstops>
   <tabstop>m_paymentIdEdit</tabstop>
-  <tabstop>m_mixinSlider</tabstop>
   <tabstop>m_sendButton</tabstop>
   <tabstop>m_clearAllButton</tabstop>
   <tabstop>m_addRecipientButton</tabstop>
   <tabstop>m_transfersScrollarea</tabstop>
-  <tabstop>m_mixinEdit</tabstop>
  </tabstops>
  <resources/>
  <connections>
@@ -589,22 +657,6 @@ font-family: Poppins;</string>
    </hints>
   </connection>
   <connection>
-   <sender>m_mixinSlider</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>SendFrame</receiver>
-   <slot>mixinValueChanged(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>221</x>
-     <y>520</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>432</x>
-     <y>294</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>m_backButton</sender>
    <signal>clicked()</signal>
    <receiver>SendFrame</receiver>
@@ -626,6 +678,5 @@ font-family: Poppins;</string>
   <slot>backClicked()</slot>
   <slot>clearAllClicked()</slot>
   <slot>addRecipientClicked()</slot>
-  <slot>mixinValueChanged(int)</slot>
  </slots>
 </ui>

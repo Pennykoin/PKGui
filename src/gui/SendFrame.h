@@ -44,7 +44,6 @@ private:
   Q_SLOT void addRecipientClicked();
   Q_SLOT void clearAllClicked();
   Q_SLOT void backClicked();  
-  Q_SLOT void mixinValueChanged(int _value);
   Q_SLOT void sendClicked();
 
 Q_SIGNALS:

@@ -208,7 +208,7 @@ font-family: Poppins;
 font-size: 13px;</string>
        </property>
        <property name="text">
-        <string>Banking</string>
+        <string>Savings</string>
        </property>
        <property name="iconSize">
         <size>
@@ -2218,7 +2218,7 @@ border-left: 1px solid orange</string>
       <property name="font">
        <font>
         <family>Nimbus Sans L</family>
-        <pointsize>12</pointsize>
+        <pointsize>14</pointsize>
         <weight>75</weight>
         <bold>true</bold>
        </font>
