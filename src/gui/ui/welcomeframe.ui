@@ -69,7 +69,7 @@ border: 0px; background-color: #111;</string>
        <string notr="true">color: white; background: transparent;</string>
       </property>
       <property name="text">
-       <string>PKGui Active</string>
+       <string>Pennykoin GUI</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
