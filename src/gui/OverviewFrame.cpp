@@ -84,7 +84,7 @@ OverviewFrame::OverviewFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::O
   connect(&WalletAdapter::instance(), &WalletAdapter::updateWalletAddressSignal, this, &OverviewFrame::updateWalletAddress);
   
   connect(&WalletAdapter::instance(), &WalletAdapter::walletStateChangedSignal, this, &OverviewFrame::setStatusBarText);
-  connect(&MessagesModel::instance(), &MessagesModel::poolEarningsSignal, this, &OverviewFrame::poolUpdate);
+
 
 
   /* initialize basic ui elements */
@@ -344,12 +344,12 @@ void OverviewFrame::settingsClicked()
     m_ui->m_subButton3->setText("");
     m_ui->m_subButton4->setText("");
     m_ui->m_subButton5->setText("");  
-    m_ui->m_subButton1->setEnabled(true);
+    m_ui->m_subButton1->setEnabled(false);
     m_ui->m_subButton2->setEnabled(true);
     m_ui->m_subButton3->setEnabled(true);
     m_ui->m_subButton4->setEnabled(true);    
     m_ui->m_subButton5->setEnabled(true);    
-    m_ui->m_subButton1->setText("Optimize Wallet");
+    m_ui->m_subButton1->setText("");
     m_ui->m_subButton2->setText("Connection Settings");
     m_ui->m_subButton3->setText("Rescan Wallet");    
 
@@ -409,13 +409,13 @@ void OverviewFrame::walletClicked()
     m_ui->m_subButton3->setEnabled(true);
     m_ui->m_subButton4->setEnabled(true);    
     m_ui->m_subButton5->setEnabled(true);
-    m_ui->m_subButton1->setText("Open Wallet");
-    m_ui->m_subButton2->setText("Create Wallet");
-    m_ui->m_subButton3->setText("Backup Wallet");    
-    m_ui->m_subButton5->setText("Pool Mining");    
+    m_ui->m_subButton1->setText("Load Account");
+    m_ui->m_subButton2->setText("Create Account");
+    m_ui->m_subButton3->setText("Backup Account");    
+    m_ui->m_subButton5->setText("");    
 
     if (!Settings::instance().isEncrypted()) {
-      m_ui->m_subButton4->setText("Encrypt Wallet");
+      m_ui->m_subButton4->setText("Encrypt Account");
     } else {
       m_ui->m_subButton4->setText("Change Password");
     }
@@ -551,20 +551,16 @@ void OverviewFrame::subButton5Clicked()
     }
   }
 #endif
-  if (subMenu == 3) 
-  {
 
-    Q_EMIT miningSignal();
-  }
 
 }
 
 
-void OverviewFrame::miningClicked() 
-{
 
-  Q_EMIT miningSignal();
-}
+
+
+
+
 
 void OverviewFrame::messageClicked() 
 {
@@ -591,7 +587,7 @@ void OverviewFrame::reset()
   pendingBalanceUpdated(0);
   actualDepositBalanceUpdated(0);
   pendingDepositBalanceUpdated(0);
-  m_ui->m_actualBalanceLabel_3->setText(CurrencyAdapter::instance().formatAmount(0));
+
   Q_EMIT resetWalletSignal();
 }
 
@@ -601,12 +597,6 @@ void OverviewFrame::setStatusBarText(const QString& _text)
   m_ui->m_statusBox->setText(_text);
 } 
 
-void OverviewFrame::poolUpdate(quint64 _dayPoolAmount, quint64 _totalPoolAmount) 
-{
-
-  m_ui->m_actualBalanceLabel_3->setText(CurrencyAdapter::instance().formatAmount(_dayPoolAmount));
-  m_ui->m_pendingBalanceLabel_3->setText(CurrencyAdapter::instance().formatAmount(_totalPoolAmount));
-}
 
 void OverviewFrame::copyClicked() {
 
