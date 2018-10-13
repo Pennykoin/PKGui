@@ -113,24 +113,16 @@ void DepositsFrame::allButtonClicked() {
 
 /* --------------------------------- CREATE A NEW DEPOSIT ------------------------------------- */
 
-void DepositsFrame::depositClicked() 
-{
-
+void DepositsFrame::depositClicked() {
   quint64 amount = CurrencyAdapter::instance().parseAmount(m_ui->m_amountSpin->cleanText());
-
-  if (amount == 0 || amount + CurrencyAdapter::instance().getMinimumFee() > WalletAdapter::instance().getActualBalance()) 
-  {
-
+  if (amount == 0 || amount + CurrencyAdapter::instance().getMinimumFee() > WalletAdapter::instance().getActualBalance()) {
     QCoreApplication::postEvent(&MainWindow::instance(), new ShowMessageEvent(tr("You don't have enough balance in your account!"), QtCriticalMsg));
     return;
   }
 
-  quint32 term = m_ui->m_timeSpin->value() * 43200;
-
-  /* initiate the desposit */
-  WalletAdapter::instance().deposit(term, amount, CurrencyAdapter::instance().getMinimumFee(), 9);
+  quint32 term = m_ui->m_timeSpin->value();
+  WalletAdapter::instance().deposit(term, amount, CurrencyAdapter::instance().getMinimumFee(), 0);
 }
-
 /* ------------------------------------------------------------------------------------------- */
 
 void DepositsFrame::depositParamsChanged() {
