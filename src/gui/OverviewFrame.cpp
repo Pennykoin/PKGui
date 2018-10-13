@@ -439,11 +439,7 @@ void OverviewFrame::walletClicked()
 
 void OverviewFrame::subButton1Clicked() 
 {
-  if (subMenu == 2) 
-  {
-
-    Q_EMIT optimizeSignal();
-  }
+ 
 
   if (subMenu == 1)
   {

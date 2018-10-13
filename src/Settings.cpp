@@ -84,7 +84,7 @@ void Settings::load()
   if (!m_settings.contains(OPTION_REMOTE_NODE)) 
   {
 
-    m_settings.insert(OPTION_REMOTE_NODE, "node.conceal.network:16000");
+    m_settings.insert(OPTION_REMOTE_NODE, "seed1.pennykoin.com:53280");
   }
 
   if (m_settings.contains(OPTION_CONNECTION)) 
