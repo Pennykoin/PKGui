@@ -15,9 +15,9 @@ set (CMAKE_PREFIX_PATH "/Users/travis/Qt5.11.1/5.11.1/")
 include_directories(${CMAKE_BINARY_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}
     src
-    PKGuiexternal
-    PKGuiinclude
-    PKGuisrc)
+    PKCli/external
+    PKCli/include
+    PKCli/src)
 
 find_package(Qt5Gui REQUIRED)
 find_package(Qt5Widgets REQUIRED)
@@ -41,7 +41,7 @@ elseif(NOT MSVC)
 endif()
 
 set(VERSION "")
-configure_file("PKGuisrc/version.h.in" "version.h")
+configure_file("PKCli/src/version.h.in" "version.h")
 configure_file("src/CryptoNoteWalletConfig.h.in" "CryptoNoteWalletConfig.h")
 
 add_definitions(-DVERSION=\"${CN_VERSION}\")
@@ -50,131 +50,131 @@ add_definitions(-DGIT_REVISION=\"${GIT_REVISION}\")
 set(CMAKE_AUTOMOC ON)
 
 set(CRYPTONOTE_SOURCES
-  PKGuiexternal/miniupnpc/connecthostport.c
-  PKGuiexternal/miniupnpc/igd_desc_parse.c
-  PKGuiexternal/miniupnpc/minisoap.c
-  PKGuiexternal/miniupnpc/miniupnpc.c
-  PKGuiexternal/miniupnpc/miniwget.c
-  PKGuiexternal/miniupnpc/minixml.c
-  PKGuiexternal/miniupnpc/portlistingparse.c
-  PKGuiexternal/miniupnpc/receivedata.c
-  PKGuiexternal/miniupnpc/upnpcommands.c
-  PKGuiexternal/miniupnpc/upnpreplyparse.c
-  PKGuisrc/Common/Base58.cpp
-  PKGuisrc/Common/CommandLine.cpp
-  PKGuisrc/Common/Util.cpp
-  PKGuisrc/Common/StringTools.cpp
-  PKGuisrc/Common/JsonValue.cpp
-  PKGuisrc/Common/ConsoleTools.cpp
-  PKGuisrc/Common/MemoryInputStream.cpp
-  PKGuisrc/Common/PathTools.cpp
-  PKGuisrc/Common/StdInputStream.cpp
-  PKGuisrc/Common/StdOutputStream.cpp
-  PKGuisrc/Common/StreamTools.cpp
-  PKGuisrc/Common/StringOutputStream.cpp
-  PKGuisrc/Common/StringView.cpp
-  PKGuisrc/Common/VectorOutputStream.cpp
-  PKGuisrc/crypto/blake256.c
-  PKGuisrc/crypto/chacha.c
-  PKGuisrc/crypto/crypto-ops-data.c
-  PKGuisrc/crypto/crypto-ops.c
-  PKGuisrc/crypto/crypto.cpp
-  PKGuisrc/crypto/groestl.c
-  PKGuisrc/crypto/hash-extra-blake.c
-  PKGuisrc/crypto/hash-extra-groestl.c
-  PKGuisrc/crypto/hash-extra-jh.c
-  PKGuisrc/crypto/hash-extra-skein.c
-  PKGuisrc/crypto/hash.c
-  PKGuisrc/crypto/jh.c
-  PKGuisrc/crypto/keccak.c
-  PKGuisrc/crypto/oaes_lib.c
-  PKGuisrc/crypto/random.c
-  PKGuisrc/crypto/skein.c
-  PKGuisrc/crypto/slow-hash.c
-  PKGuisrc/crypto/slow-hash.cpp
-  PKGuisrc/crypto/tree-hash.c
-  PKGuisrc/CryptoNoteCore/BlockchainIndices.cpp
-  PKGuisrc/CryptoNoteCore/BlockchainMessages.cpp
-  PKGuisrc/CryptoNoteCore/BlockIndex.cpp
-  PKGuisrc/CryptoNoteCore/CoreConfig.cpp
-  PKGuisrc/CryptoNoteCore/CryptoNoteBasic.cpp
-  PKGuisrc/CryptoNoteCore/CryptoNoteTools.cpp
-  PKGuisrc/CryptoNoteCore/Currency.cpp
-  PKGuisrc/CryptoNoteCore/DepositIndex.cpp
-  PKGuisrc/CryptoNoteCore/MinerConfig.cpp
-  PKGuisrc/CryptoNoteCore/Transaction.cpp
-  PKGuisrc/CryptoNoteCore/Account.cpp
-  PKGuisrc/CryptoNoteCore/Blockchain.cpp
-  PKGuisrc/CryptoNoteCore/Checkpoints.cpp
-  PKGuisrc/CryptoNoteCore/CryptoNoteBasicImpl.cpp
-  PKGuisrc/CryptoNoteCore/Core.cpp
-  PKGuisrc/CryptoNoteCore/CryptoNoteFormatUtils.cpp
-  PKGuisrc/CryptoNoteCore/CryptoNoteSerialization.cpp
-  PKGuisrc/CryptoNoteCore/Difficulty.cpp
-  PKGuisrc/CryptoNoteCore/IBlock.cpp
-  PKGuisrc/CryptoNoteCore/Miner.cpp
-  PKGuisrc/CryptoNoteCore/TransactionExtra.cpp
-  PKGuisrc/CryptoNoteCore/TransactionPool.cpp
-  PKGuisrc/CryptoNoteCore/TransactionPrefixImpl.cpp
-  PKGuisrc/CryptoNoteCore/TransactionUtils.cpp
-  PKGuisrc/InProcessNode/InProcessNode.cpp
-  PKGuisrc/InProcessNode/InProcessNodeErrors.cpp
-  PKGuisrc/NodeRpcProxy/NodeErrors.cpp
-  PKGuisrc/NodeRpcProxy/NodeRpcProxy.cpp
-  PKGuisrc/P2p/NetNodeConfig.cpp
-  PKGuisrc/Serialization/BinaryInputStreamSerializer.cpp
-  PKGuisrc/Serialization/BinaryOutputStreamSerializer.cpp
-  PKGuisrc/Serialization/JsonInputValueSerializer.cpp
-  PKGuisrc/Serialization/JsonOutputStreamSerializer.cpp
-  PKGuisrc/Serialization/KVBinaryInputStreamSerializer.cpp
-  PKGuisrc/Serialization/KVBinaryOutputStreamSerializer.cpp
-  PKGuisrc/Serialization/SerializationOverloads.cpp
-  PKGuisrc/Transfers/BlockchainSynchronizer.cpp
-  PKGuisrc/Transfers/SynchronizationState.cpp
-  PKGuisrc/Transfers/TransfersConsumer.cpp
-  PKGuisrc/Transfers/TransfersContainer.cpp
-  PKGuisrc/Transfers/TransfersSubscription.cpp
-  PKGuisrc/Transfers/TransfersSynchronizer.cpp
-  PKGuisrc/Wallet/LegacyKeysImporter.cpp
-  PKGuisrc/Wallet/WalletAsyncContextCounter.cpp
-  PKGuisrc/Wallet/WalletErrors.cpp
-  PKGuisrc/WalletLegacy/KeysStorage.cpp
-  PKGuisrc/WalletLegacy/WalletLegacy.cpp
-  PKGuisrc/WalletLegacy/WalletHelper.cpp
-  PKGuisrc/WalletLegacy/WalletLegacySerializer.cpp
-  PKGuisrc/WalletLegacy/WalletLegacySerialization.cpp
-  PKGuisrc/WalletLegacy/WalletTransactionSender.cpp
-  PKGuisrc/WalletLegacy/WalletUnconfirmedTransactions.cpp
-  PKGuisrc/WalletLegacy/WalletUserTransactionsCache.cpp
-  PKGuisrc/System/ContextGroup.cpp
-  PKGuisrc/System/Event.cpp
-  PKGuisrc/System/EventLock.cpp
-  PKGuisrc/System/InterruptedException.cpp
-  PKGuisrc/System/Ipv4Address.cpp
-  PKGuisrc/System/TcpStream.cpp
-  PKGuisrc/HTTP/HttpRequest.cpp
-  PKGuisrc/HTTP/HttpParser.cpp
-  PKGuisrc/HTTP/HttpParserErrorCodes.cpp
-  PKGuisrc/HTTP/HttpResponse.cpp
-  PKGuisrc/Rpc/HttpClient.cpp
-  PKGuisrc/Rpc/JsonRpc.cpp
-  PKGuisrc/P2p/NetNode.cpp
-  PKGuisrc/P2p/LevinProtocol.cpp
-  PKGuisrc/P2p/NetNodeConfig.cpp
-  PKGuisrc/P2p/PeerListManager.cpp
-  PKGuisrc/CryptoNoteProtocol/CryptoNoteProtocolHandler.cpp
-  PKGuisrc/Logging/ILogger.cpp
-  PKGuisrc/Logging/LoggerGroup.cpp
-  PKGuisrc/Logging/CommonLogger.cpp
-  PKGuisrc/Logging/LoggerManager.cpp
-  PKGuisrc/Logging/FileLogger.cpp
-  PKGuisrc/Logging/StreamLogger.cpp
-  PKGuisrc/Logging/ConsoleLogger.cpp
-  PKGuisrc/Logging/LoggerMessage.cpp
-  PKGuisrc/Logging/LoggerRef.cpp
-  PKGuisrc/BlockchainExplorer/BlockchainExplorer.cpp
-  PKGuisrc/BlockchainExplorer/BlockchainExplorerDataBuilder.cpp
-  PKGuisrc/BlockchainExplorer/BlockchainExplorerErrors.cpp
+  PKCli/external/miniupnpc/connecthostport.c
+  PKCli/external/miniupnpc/igd_desc_parse.c
+  PKCli/external/miniupnpc/minisoap.c
+  PKCli/external/miniupnpc/miniupnpc.c
+  PKCli/external/miniupnpc/miniwget.c
+  PKCli/external/miniupnpc/minixml.c
+  PKCli/external/miniupnpc/portlistingparse.c
+  PKCli/external/miniupnpc/receivedata.c
+  PKCli/external/miniupnpc/upnpcommands.c
+  PKCli/external/miniupnpc/upnpreplyparse.c
+  PKCli/src/Common/Base58.cpp
+  PKCli/src/Common/CommandLine.cpp
+  PKCli/src/Common/Util.cpp
+  PKCli/src/Common/StringTools.cpp
+  PKCli/src/Common/JsonValue.cpp
+  PKCli/src/Common/ConsoleTools.cpp
+  PKCli/src/Common/MemoryInputStream.cpp
+  PKCli/src/Common/PathTools.cpp
+  PKCli/src/Common/StdInputStream.cpp
+  PKCli/src/Common/StdOutputStream.cpp
+  PKCli/src/Common/StreamTools.cpp
+  PKCli/src/Common/StringOutputStream.cpp
+  PKCli/src/Common/StringView.cpp
+  PKCli/src/Common/VectorOutputStream.cpp
+  PKCli/src/crypto/blake256.c
+  PKCli/src/crypto/chacha.c
+  PKCli/src/crypto/crypto-ops-data.c
+  PKCli/src/crypto/crypto-ops.c
+  PKCli/src/crypto/crypto.cpp
+  PKCli/src/crypto/groestl.c
+  PKCli/src/crypto/hash-extra-blake.c
+  PKCli/src/crypto/hash-extra-groestl.c
+  PKCli/src/crypto/hash-extra-jh.c
+  PKCli/src/crypto/hash-extra-skein.c
+  PKCli/src/crypto/hash.c
+  PKCli/src/crypto/jh.c
+  PKCli/src/crypto/keccak.c
+  PKCli/src/crypto/oaes_lib.c
+  PKCli/src/crypto/random.c
+  PKCli/src/crypto/skein.c
+  PKCli/src/crypto/slow-hash.c
+  PKCli/src/crypto/slow-hash.cpp
+  PKCli/src/crypto/tree-hash.c
+  PKCli/src/CryptoNoteCore/BlockchainIndices.cpp
+  PKCli/src/CryptoNoteCore/BlockchainMessages.cpp
+  PKCli/src/CryptoNoteCore/BlockIndex.cpp
+  PKCli/src/CryptoNoteCore/CoreConfig.cpp
+  PKCli/src/CryptoNoteCore/CryptoNoteBasic.cpp
+  PKCli/src/CryptoNoteCore/CryptoNoteTools.cpp
+  PKCli/src/CryptoNoteCore/Currency.cpp
+  PKCli/src/CryptoNoteCore/DepositIndex.cpp
+  PKCli/src/CryptoNoteCore/MinerConfig.cpp
+  PKCli/src/CryptoNoteCore/Transaction.cpp
+  PKCli/src/CryptoNoteCore/Account.cpp
+  PKCli/src/CryptoNoteCore/Blockchain.cpp
+  PKCli/src/CryptoNoteCore/Checkpoints.cpp
+  PKCli/src/CryptoNoteCore/CryptoNoteBasicImpl.cpp
+  PKCli/src/CryptoNoteCore/Core.cpp
+  PKCli/src/CryptoNoteCore/CryptoNoteFormatUtils.cpp
+  PKCli/src/CryptoNoteCore/CryptoNoteSerialization.cpp
+  PKCli/src/CryptoNoteCore/Difficulty.cpp
+  PKCli/src/CryptoNoteCore/IBlock.cpp
+  PKCli/src/CryptoNoteCore/Miner.cpp
+  PKCli/src/CryptoNoteCore/TransactionExtra.cpp
+  PKCli/src/CryptoNoteCore/TransactionPool.cpp
+  PKCli/src/CryptoNoteCore/TransactionPrefixImpl.cpp
+  PKCli/src/CryptoNoteCore/TransactionUtils.cpp
+  PKCli/src/InProcessNode/InProcessNode.cpp
+  PKCli/src/InProcessNode/InProcessNodeErrors.cpp
+  PKCli/src/NodeRpcProxy/NodeErrors.cpp
+  PKCli/src/NodeRpcProxy/NodeRpcProxy.cpp
+  PKCli/src/P2p/NetNodeConfig.cpp
+  PKCli/src/Serialization/BinaryInputStreamSerializer.cpp
+  PKCli/src/Serialization/BinaryOutputStreamSerializer.cpp
+  PKCli/src/Serialization/JsonInputValueSerializer.cpp
+  PKCli/src/Serialization/JsonOutputStreamSerializer.cpp
+  PKCli/src/Serialization/KVBinaryInputStreamSerializer.cpp
+  PKCli/src/Serialization/KVBinaryOutputStreamSerializer.cpp
+  PKCli/src/Serialization/SerializationOverloads.cpp
+  PKCli/src/Transfers/BlockchainSynchronizer.cpp
+  PKCli/src/Transfers/SynchronizationState.cpp
+  PKCli/src/Transfers/TransfersConsumer.cpp
+  PKCli/src/Transfers/TransfersContainer.cpp
+  PKCli/src/Transfers/TransfersSubscription.cpp
+  PKCli/src/Transfers/TransfersSynchronizer.cpp
+  PKCli/src/Wallet/LegacyKeysImporter.cpp
+  PKCli/src/Wallet/WalletAsyncContextCounter.cpp
+  PKCli/src/Wallet/WalletErrors.cpp
+  PKCli/src/WalletLegacy/KeysStorage.cpp
+  PKCli/src/WalletLegacy/WalletLegacy.cpp
+  PKCli/src/WalletLegacy/WalletHelper.cpp
+  PKCli/src/WalletLegacy/WalletLegacySerializer.cpp
+  PKCli/src/WalletLegacy/WalletLegacySerialization.cpp
+  PKCli/src/WalletLegacy/WalletTransactionSender.cpp
+  PKCli/src/WalletLegacy/WalletUnconfirmedTransactions.cpp
+  PKCli/src/WalletLegacy/WalletUserTransactionsCache.cpp
+  PKCli/src/System/ContextGroup.cpp
+  PKCli/src/System/Event.cpp
+  PKCli/src/System/EventLock.cpp
+  PKCli/src/System/InterruptedException.cpp
+  PKCli/src/System/Ipv4Address.cpp
+  PKCli/src/System/TcpStream.cpp
+  PKCli/src/HTTP/HttpRequest.cpp
+  PKCli/src/HTTP/HttpParser.cpp
+  PKCli/src/HTTP/HttpParserErrorCodes.cpp
+  PKCli/src/HTTP/HttpResponse.cpp
+  PKCli/src/Rpc/HttpClient.cpp
+  PKCli/src/Rpc/JsonRpc.cpp
+  PKCli/src/P2p/NetNode.cpp
+  PKCli/src/P2p/LevinProtocol.cpp
+  PKCli/src/P2p/NetNodeConfig.cpp
+  PKCli/src/P2p/PeerListManager.cpp
+  PKCli/src/CryptoNoteProtocol/CryptoNoteProtocolHandler.cpp
+  PKCli/src/Logging/ILogger.cpp
+  PKCli/src/Logging/LoggerGroup.cpp
+  PKCli/src/Logging/CommonLogger.cpp
+  PKCli/src/Logging/LoggerManager.cpp
+  PKCli/src/Logging/FileLogger.cpp
+  PKCli/src/Logging/StreamLogger.cpp
+  PKCli/src/Logging/ConsoleLogger.cpp
+  PKCli/src/Logging/LoggerMessage.cpp
+  PKCli/src/Logging/LoggerRef.cpp
+  PKCli/src/BlockchainExplorer/BlockchainExplorer.cpp
+  PKCli/src/BlockchainExplorer/BlockchainExplorerDataBuilder.cpp
+  PKCli/src/BlockchainExplorer/BlockchainExplorerErrors.cpp
 )
 
 file(GLOB_RECURSE SOURCES src/*.cpp)
@@ -192,7 +192,7 @@ if (WIN32)
 	message(FATAL_ERROR "Only MSVC is supported on this platform")
   endif ()
   add_definitions(/D_CRT_SECURE_NO_WARNINGS /D_WIN32_WINNT=0x0600 /DSTATICLIB)
-  include_directories(PKGuisrc/platform/msc)
+  include_directories(PKCli/src/platform/msc)
 
   set(PLATFORM_DIR Windows)
   set(BUILD_PLATFORM WIN32)
@@ -200,7 +200,7 @@ if (WIN32)
   set(QTMAIN Qt5::WinMain)
 
 elseif (UNIX)
-  set(CRYPTONOTE_SOURCES ${CRYPTONOTE_SOURCES} PKGuiexternal/miniupnpc/minissdpc.c)
+  set(CRYPTONOTE_SOURCES ${CRYPTONOTE_SOURCES} PKCli/external/miniupnpc/minissdpc.c)
   if (APPLE)
     enable_language(ASM)
     file(GLOB_RECURSE OBJC_SOURCES src/*.mm)
@@ -236,8 +236,8 @@ elseif (UNIX)
   endif (APPLE)
 endif ()
 
-include_directories(PKGuisrc/Platform/${PLATFORM_DIR})
-file(GLOB PLATFORM_SOURCES PKGuisrc/Platform/${PLATFORM_DIR}/System/*)
+include_directories(PKCli/src/Platform/${PLATFORM_DIR})
+file(GLOB PLATFORM_SOURCES PKCli/src/Platform/${PLATFORM_DIR}/System/*)
 set(CRYPTONOTE_SOURCES ${CRYPTONOTE_SOURCES} ${PLATFORM_SOURCES})
 
 add_library(${CRYPTONOTE_LIB} STATIC ${CRYPTONOTE_SOURCES})
