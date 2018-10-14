@@ -29,6 +29,7 @@ public:
   quint32 getDepositMinTerm() const;
   quint32 getDepositMaxTerm() const;
   quint64 getDifficultyTarget() const;
+    QString generatePaymentId() const;
   quintptr getNumberOfDecimalPlaces() const;
   QString formatAmount(quint64 _amount) const;
   quint64 parseAmount(const QString& _amountString) const;

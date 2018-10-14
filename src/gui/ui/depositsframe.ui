@@ -417,7 +417,7 @@ font-family: Poppins;</string>
         <set>Qt::AlignCenter</set>
        </property>
        <property name="decimals">
-        <number>6</number>
+        <number>2</number>
        </property>
        <property name="maximum">
         <double>20000000.000000000000000</double>

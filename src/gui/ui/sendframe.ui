@@ -421,7 +421,7 @@ font-family: Poppins;</string>
         <string notr="true">padding: 3px; background-color: #111; border: 0px;</string>
        </property>
        <property name="decimals">
-        <number>6</number>
+        <number>2</number>
        </property>
        <property name="minimum">
         <double>0.000010000000000</double>
@@ -532,6 +532,36 @@ font-family: Poppins;</string>
       </widget>
      </item>
      <item>
+        <widget class="QPushButton" name="m_generatePaymentIdButton">
+       <property name="minimumSize">
+        <size>
+         <width>171</width>
+         <height>28</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>31</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Poppins</family>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: #aaa; background-color: #333; border-top: 3px solid orange;</string>
+       </property>
+       <property name="text">
+        <string>GENERATE ID</string>
+       </property>
+      </widget>
+</item>
+     <item>
       <spacer name="horizontalSpacer_2">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -601,6 +631,7 @@ font-family: Poppins;</string>
  </widget>
  <tabstops>
   <tabstop>m_paymentIdEdit</tabstop>
+<tabstop>m_generatePaymentIdButton</tabstop>
   <tabstop>m_sendButton</tabstop>
   <tabstop>m_clearAllButton</tabstop>
   <tabstop>m_addRecipientButton</tabstop>
@@ -624,6 +655,22 @@ font-family: Poppins;</string>
     </hint>
    </hints>
   </connection>
+    <connection>
+   <sender>m_generatePaymentIdButton</sender>
+   <signal>clicked()</signal>
+   <receiver>SendFrame</receiver>
+   <slot>generatePaymentIdClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>748</x>
+     <y>497</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>432</x>
+     <y>294</y>
+    </hint>
+   </hints>
+</connection>
   <connection>
    <sender>m_clearAllButton</sender>
    <signal>clicked()</signal>

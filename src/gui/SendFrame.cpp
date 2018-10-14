@@ -104,6 +104,9 @@ void SendFrame::clearAllClicked() {
   m_ui->m_paymentIdEdit->clear();
   m_ui->m_feeSpin->setValue(m_ui->m_feeSpin->minimum());
 }
+void SendFrame::insertPaymentID(QString _paymentid) {
+    m_ui->m_paymentIdEdit->setText(_paymentid);
+}
 
 //-----------------------------------------------------------------------------------------
 
@@ -271,5 +274,8 @@ void SendFrame::backClicked() {
   Q_EMIT backSignal();
 }
 
+void SendFrame::generatePaymentIdClicked() {
+  SendFrame::insertPaymentID(CurrencyAdapter::instance().generatePaymentId());
+}
 
 }
