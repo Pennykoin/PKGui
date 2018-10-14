@@ -181,6 +181,186 @@ font-family: Poppins;</string>
         <height>701</height>
        </rect>
       </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>170</red>
+            <green>170</green>
+            <blue>170</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>17</red>
+            <green>17</green>
+            <blue>17</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>170</red>
+            <green>170</green>
+            <blue>170</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>170</red>
+            <green>170</green>
+            <blue>170</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>17</red>
+            <green>17</green>
+            <blue>17</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>17</red>
+            <green>17</green>
+            <blue>17</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>170</red>
+            <green>170</green>
+            <blue>170</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>17</red>
+            <green>17</green>
+            <blue>17</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>170</red>
+            <green>170</green>
+            <blue>170</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>170</red>
+            <green>170</green>
+            <blue>170</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>17</red>
+            <green>17</green>
+            <blue>17</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>17</red>
+            <green>17</green>
+            <blue>17</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>170</red>
+            <green>170</green>
+            <blue>170</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>17</red>
+            <green>17</green>
+            <blue>17</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>170</red>
+            <green>170</green>
+            <blue>170</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>170</red>
+            <green>170</green>
+            <blue>170</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>17</red>
+            <green>17</green>
+            <blue>17</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>17</red>
+            <green>17</green>
+            <blue>17</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="font">
+       <font>
+        <family>Padauk Book [PYRS]</family>
+        <pointsize>22</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">background-color: #111;</string>
       </property>
@@ -566,10 +746,10 @@ font-size: 13px;</string>
       <widget class="QLabel" name="m_myConcealWalletTitle_2">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>10</y>
-         <width>71</width>
-         <height>21</height>
+         <x>30</x>
+         <y>20</y>
+         <width>91</width>
+         <height>51</height>
         </rect>
        </property>
        <property name="font">
@@ -586,6 +766,9 @@ font-family: Poppins;</string>
        </property>
        <property name="text">
         <string>PKGUI</string>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::RichText</enum>
        </property>
       </widget>
      </widget>
@@ -1335,14 +1518,19 @@ font-size: 13px; border: none;</string>
       <widget class="QLabel" name="label">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>13</y>
-         <width>121</width>
-         <height>21</height>
+         <x>20</x>
+         <y>3</y>
+         <width>131</width>
+         <height>31</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
        <property name="text">
-        <string>Account Number:</string>
+        <string>Account ID:</string>
        </property>
       </widget>
      </widget>
@@ -1605,7 +1793,7 @@ font-size: 13px;
 border-left: 1px solid orange</string>
       </property>
       <property name="text">
-       <string>NEW TRANSFER</string>
+       <string>SEND PENNYKOIN</string>
       </property>
      </widget>
      <widget class="QPushButton" name="m_newWalletButton">
@@ -1814,7 +2002,7 @@ font-size: 13px;
 border-left: 1px solid orange</string>
       </property>
       <property name="text">
-       <string>NEW ACCOUNT</string>
+       <string>CREATE ACCOUNT</string>
       </property>
      </widget>
      <widget class="QPushButton" name="m_newDepositButton">
@@ -2023,7 +2211,7 @@ font-size: 13px;
 border-left: 1px solid orange</string>
       </property>
       <property name="text">
-       <string>NEW DEPOSIT</string>
+       <string>DEPOSIT SAVINGS</string>
       </property>
      </widget>
      <widget class="QPushButton" name="m_newMessageButton">
@@ -2060,7 +2248,7 @@ font-size: 13px;
 border-left: 1px solid orange</string>
       </property>
       <property name="text">
-       <string>NEW MESSAGE</string>
+       <string>SEND MESSAGE</string>
       </property>
      </widget>
      <widget class="QLabel" name="m_currentWalletTitle">
