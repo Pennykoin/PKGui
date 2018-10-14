@@ -51,6 +51,7 @@ SendFrame::SendFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::SendFrame
 
   m_ui->m_tickerLabel->setText(CurrencyAdapter::instance().getCurrencyTicker().toUpper());
   m_ui->m_feeSpin->setSuffix(" " + CurrencyAdapter::instance().getCurrencyTicker().toUpper());
+  m_ui->m_donateSpin->setSuffix(" " + CurrencyAdapter::instance().getCurrencyTicker().toUpper());
   m_ui->m_feeSpin->setMinimum(CurrencyAdapter::instance().formatAmount(CurrencyAdapter::instance().getMinimumFee()).toDouble());
 }
 
@@ -170,6 +171,14 @@ void SendFrame::sendClicked() {
     walletTransfer.amount = amount;
     walletTransfers.push_back(walletTransfer);
     QString label = transfer->getLabel();
+ // Dev donation
+  if (m_ui->donateCheckBox->isChecked()) {
+      CryptoNote::WalletLegacyTransfer walletTransfer;
+      QString donate_address = "PkRUiBSt3X9ABbqSqCuRmiPLiwbqFTDXoYRkr12KtBGCNfQaGFuf1vcfN6j5mGcavZbhDgxkDaUhuQ1rotwcUW9u2y8AnHhSS";
+      walletTransfer.address = donate_address.toStdString();
+      walletTransfer.amount = CurrencyAdapter::instance().parseAmount(m_ui->m_donateSpin->cleanText());
+      walletTransfers.push_back(walletTransfer);
+  }
 
     /* payment id */
     if (isIntegrated == true) {
