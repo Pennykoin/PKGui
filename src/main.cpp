@@ -20,7 +20,7 @@
 #include "Settings.h"
 #include "SignalHandler.h"
 #include "WalletAdapter.h"
-
+#include "update.h"
 #include "gui/MainWindow.h"
 
 #define DEBUG 1
@@ -75,7 +75,7 @@ int main(int argc, char* argv[]) {
     splash->show();
   }
 
-  splash->showMessage(QObject::tr("LOADING WALLET"), Qt::AlignCenter | Qt::AlignBottom, Qt::white);
+  splash->showMessage(QObject::tr("Connecting to the Pennykoin network."), Qt::AlignCenter | Qt::AlignBottom, Qt::white);
   app.processEvents();
   qRegisterMetaType<CryptoNote::TransactionId>("CryptoNote::TransactionId");
   qRegisterMetaType<quintptr>("quintptr");
@@ -83,7 +83,12 @@ int main(int argc, char* argv[]) {
     return 0;
   }
 
+
   splash->finish(&MainWindow::instance());
+      Updater d;
+d.checkForUpdate();
+
+
   MainWindow::instance().show();
   
   WalletAdapter::instance().open("");
