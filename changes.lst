@@ -1,4 +1,5 @@
 rephrased a lot in an attempt to be intuitive
 tried to clean up the UI
 no mining
-update check
+checks for updates & links to site for DL
+functional donation code, checkbox for 100 PK currently
