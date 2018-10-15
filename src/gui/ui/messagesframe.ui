@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1270</width>
-    <height>700</height>
+    <width>1024</width>
+    <height>640</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>1270</width>
-    <height>700</height>
+    <width>1024</width>
+    <height>640</height>
    </size>
   </property>
   <property name="font">
@@ -26,7 +26,7 @@
    <string>Frame</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: #111; color: #aaa;</string>
+   <string notr="true">background-color: #1b1b1b; color: #9b8b27;</string>
   </property>
   <property name="frameShape">
    <enum>QFrame::NoFrame</enum>
@@ -158,7 +158,7 @@ font-family: Poppins;</string>
     <widget class="QTreeView" name="m_messagesView">
      <property name="minimumSize">
       <size>
-       <width>1270</width>
+       <width>1024</width>
        <height>550</height>
       </size>
      </property>

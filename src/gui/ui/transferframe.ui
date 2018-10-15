@@ -14,7 +14,7 @@
    <string>Frame</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: #111; color: #aaa; border: 0px;
+   <string notr="true">background-color: #1b1b1b; color: #9b8b27; border: 0px;
 </string>
   </property>
   <property name="frameShape">

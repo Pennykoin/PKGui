@@ -19,7 +19,7 @@
    <string>Select address</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: #111; color: #aaa;</string>
+   <string notr="true">background-color: #1b1b1b; color: #9b8b27;</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="leftMargin">

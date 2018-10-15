@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1270</width>
-    <height>700</height>
+    <width>1024</width>
+    <height>640</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -18,8 +18,8 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>1270</width>
-    <height>700</height>
+    <width>1024</width>
+    <height>640</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -221,7 +221,7 @@ font-family: Poppins;</string>
     <widget class="QTreeView" name="m_addressBookView">
      <property name="minimumSize">
       <size>
-       <width>1270</width>
+       <width>1024</width>
        <height>550</height>
       </size>
      </property>
