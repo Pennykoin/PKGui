@@ -129,7 +129,7 @@ void SendFrame::sendClicked() {
     QString int_address = transfer->getAddress();   
 
     /* integrated address check */
-    if (address.toStdString().length() == 186) 
+    if (address.toStdString().length() == 185) 
     {
       isIntegrated = true;
 
