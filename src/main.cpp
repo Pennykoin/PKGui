@@ -12,7 +12,7 @@
 #include <QMessageBox>
 #include <QSplashScreen>
 #include <QStyleFactory>
-
+#include <QGuiApplication>
 #include "CommandLineParser.h"
 #include "CurrencyAdapter.h"
 #include "LoggerAdapter.h"
@@ -32,16 +32,15 @@ int main(int argc, char* argv[]) {
   app.setApplicationName("PKGui");
   app.setApplicationVersion(Settings::instance().getVersion());
   app.setQuitOnLastWindowClosed(false);
-
 #ifndef Q_OS_MAC
   QApplication::setStyle(QStyleFactory::create("Fusion"));
 #endif
+QGuiApplication::setAttribute(Qt::AA_DisableHighDpiScaling);
 
   CommandLineParser cmdLineParser(nullptr);
   Settings::instance().setCommandLineParser(&cmdLineParser);
   bool cmdLineParseResult = cmdLineParser.process(app.arguments());
   Settings::instance().load();
-
 #ifdef Q_OS_WIN
   if(!cmdLineParseResult) {
     QMessageBox::critical(nullptr, QObject::tr("Error"), cmdLineParser.getErrorText());
