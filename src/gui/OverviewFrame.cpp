@@ -314,9 +314,9 @@ void OverviewFrame::importClicked()
     m_ui->m_subButton3->setEnabled(true);
     m_ui->m_subButton4->setEnabled(false);
     m_ui->m_subButton5->setEnabled(false);    
-    m_ui->m_subButton1->setText("Import Seed");
-    m_ui->m_subButton3->setText("Import Secret Keys");
-    m_ui->m_subButton2->setText("Import GUI Key");
+    m_ui->m_subButton1->setText("Mnemonics");
+    m_ui->m_subButton3->setText("View/Spend");
+    m_ui->m_subButton2->setText("Private Key");
     subMenu = 1;
   } else {
 
@@ -350,7 +350,7 @@ void OverviewFrame::settingsClicked()
     m_ui->m_subButton4->setEnabled(true);    
     m_ui->m_subButton5->setEnabled(true);    
     m_ui->m_subButton1->setText("");
-    m_ui->m_subButton2->setText("Connection Settings");
+    m_ui->m_subButton2->setText("Node Choice");
     m_ui->m_subButton3->setText("Rescan Wallet");    
 
     #ifdef Q_OS_WIN        
