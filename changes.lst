@@ -1,5 +1,12 @@
+The new rebase ( orig cxx wallet) came with a lot of support for things that have been added to cli, spend/view
+mnemonics, and integrated addresses (sending, cant generate in client yet). It also packs some cool things 
+I hadn't messed with like multiple addresse fields and remote node access.
+
 rephrased a lot in an attempt to be intuitive
 tried to clean up the UI
 no mining
 checks for updates & links to site for DL
+generates randon payment ID
 functional donation code, checkbox for 100 PK currently
+New smoother fonts
+Smaller size (screens slightly redesigned)

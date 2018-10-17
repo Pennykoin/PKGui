@@ -53,8 +53,8 @@ border: 0px; background-color: #111;</string>
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
-        <x>-20</x>
-        <y>130</y>
+        <x>-120</x>
+        <y>80</y>
         <width>1281</width>
         <height>41</height>
        </rect>
@@ -69,7 +69,7 @@ border: 0px; background-color: #111;</string>
        <string notr="true">color: white; background: transparent;</string>
       </property>
       <property name="text">
-       <string>Pennykoin GUI</string>
+       <string>PKGui Pennykoin System</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -78,8 +78,8 @@ border: 0px; background-color: #111;</string>
      <widget class="QPushButton" name="pushButton">
       <property name="geometry">
        <rect>
-        <x>490</x>
-        <y>210</y>
+        <x>400</x>
+        <y>170</y>
         <width>250</width>
         <height>41</height>
        </rect>
@@ -94,14 +94,14 @@ border: 0px; background-color: #111;</string>
        <string notr="true">color: #aaa; background-color: #222; border-top: 2px solid orange;</string>
       </property>
       <property name="text">
-       <string>CREATE NEW WALLET</string>
+       <string>CREATE ACCOUNT</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_2">
       <property name="geometry">
        <rect>
-        <x>490</x>
-        <y>270</y>
+        <x>400</x>
+        <y>240</y>
         <width>250</width>
         <height>41</height>
        </rect>
@@ -116,14 +116,14 @@ border: 0px; background-color: #111;</string>
        <string notr="true">color: #aaa; background-color: #222; border-top: 2px solid orange;</string>
       </property>
       <property name="text">
-       <string>OPEN EXISTING WALLET</string>
+       <string>EXISTING ACCOUNT</string>
       </property>
      </widget>
      <widget class="QPushButton" name="seedButton">
       <property name="geometry">
        <rect>
-        <x>490</x>
-        <y>330</y>
+        <x>400</x>
+        <y>310</y>
         <width>250</width>
         <height>41</height>
        </rect>
@@ -144,8 +144,8 @@ border: 0px; background-color: #111;</string>
      <widget class="QPushButton" name="guikeyButton">
       <property name="geometry">
        <rect>
-        <x>490</x>
-        <y>390</y>
+        <x>400</x>
+        <y>380</y>
         <width>250</width>
         <height>41</height>
        </rect>
@@ -166,7 +166,7 @@ border: 0px; background-color: #111;</string>
      <widget class="QPushButton" name="spendkeyButton">
       <property name="geometry">
        <rect>
-        <x>490</x>
+        <x>400</x>
         <y>450</y>
         <width>250</width>
         <height>41</height>
