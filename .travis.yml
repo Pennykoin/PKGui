@@ -16,13 +16,16 @@
          - libminiupnpc-dev 
          - libreadline6-dev 
          - libldns-dev
-         - qt5-default
+    
 
   before_install: 
             - chmod +x build.sh
             - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get update; fi
-            - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get clean; fi
-            - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install make qt5-default cmake build-essential libboost-all-dev pkg-config libssl-dev libzmq3-dev libunbound-dev libsodium-dev libminiupnpc-dev libreadline6-dev libldns-dev; fi
+            - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get clean; fi  
+            - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install make cmake build-essential libboost-all-dev pkg-config libssl-dev libzmq3-dev libunbound-dev libsodium-dev libminiupnpc-dev libreadline6-dev libldns-dev; fi
+              - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo wget "http://qtmirror.ics.com/pub/qtproject/archive/qt/5.6/5.6.3/qt-opensource-linux-x64-5.6.3.run"; fi 
+            - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo chmod+x qt-opensource-linux-x64-5.6.3.run; fi   
+             - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo ./qt-opensource-linux-x64-5.6.3.run; fi  
   script:
             ./build.sh
 
