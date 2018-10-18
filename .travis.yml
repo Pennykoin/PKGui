@@ -2,7 +2,6 @@
 
   group: stable
   os: 
-     - osx
      - linux
   dist: xenial
   addons:
@@ -21,7 +20,6 @@
 
   before_install: 
             - chmod +x build.sh
-            - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew upgrade autoconf qt5 automake berkeley-db4 libtool miniupnpc openssl protobuf; fi
             - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get update; fi
             - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get clean; fi
             - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install make qt5-default cmake build-essential libboost-all-dev pkg-config libssl-dev libzmq3-dev libunbound-dev libsodium-dev libminiupnpc-dev libreadline6-dev libldns-dev; fi
