@@ -35,7 +35,7 @@ int main(int argc, char* argv[]) {
 #ifndef Q_OS_MAC
   QApplication::setStyle(QStyleFactory::create("Fusion"));
 #endif
-QGuiApplication::setAttribute(Qt::AA_DisableHighDpiScaling);
+
 
   CommandLineParser cmdLineParser(nullptr);
   Settings::instance().setCommandLineParser(&cmdLineParser);
