@@ -151,7 +151,7 @@ QWidget:item:selected {
      <widget class="QPushButton" name="m_backButton">
       <property name="geometry">
        <rect>
-        <x>820</x>
+        <x>832</x>
         <y>10</y>
         <width>171</width>
         <height>31</height>
@@ -837,7 +837,7 @@ font-family: Poppins;</string>
         <string notr="true">color: #aaa;</string>
        </property>
        <property name="text">
-        <string>interestLabel</string>
+        <string/>
        </property>
        <property name="alignment">
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -917,15 +917,6 @@ font-family: Poppins;</string>
        </property>
       </widget>
      </widget>
-     <zorder>m_depositView</zorder>
-     <zorder>m_backButton</zorder>
-     <zorder>label_4</zorder>
-     <zorder>widthraw</zorder>
-     <zorder>m_graph</zorder>
-     <zorder>m_depositSelectButton</zorder>
-     <zorder>m_investmentSelectButton</zorder>
-     <zorder>m_interestLabel</zorder>
-     <zorder>depositsBox</zorder>
     </widget>
    </item>
   </layout>
