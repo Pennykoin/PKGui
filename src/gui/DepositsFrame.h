@@ -27,8 +27,9 @@ public:
 private:
   QScopedPointer<Ui::DepositsFrame> m_ui;
   QScopedArrayPointer<DepositListModel> m_depositModel;
-
+void walletActualBalanceUpdated(quint64 _balance);
   void actualDepositBalanceUpdated(quint64 _balance);
+  
   void pendingDepositBalanceUpdated(quint64 _balance);
   void reset();
 

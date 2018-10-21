@@ -23,11 +23,29 @@ namespace WalletGui {
 
 namespace {
 
-QString monthsToBlocks(int _months) {
-  QString resTempate("%1 %2");
-  if (_months < 13) {
-    return resTempate.arg(_months * 21900).arg(QObject::tr("blocks"));
+
+Q_DECL_CONSTEXPR quint32 SECONDS_IN_MINUTE = 60;
+Q_DECL_CONSTEXPR quint32 SECONDS_IN_HOUR = 60 * SECONDS_IN_MINUTE;
+Q_DECL_CONSTEXPR quint32 SECONDS_IN_DAY = 24 * SECONDS_IN_HOUR;
+Q_DECL_CONSTEXPR quint32 SECONDS_IN_MONTH = 30 * SECONDS_IN_DAY;
+Q_DECL_CONSTEXPR quint32 SECONDS_IN_YEAR = 12 * SECONDS_IN_MONTH;
+
+QString secondsToNativeTime(int _seconds) {
+  QString resTempate("~ %1 %2");
+  if (_seconds < SECONDS_IN_MINUTE) {
+    return resTempate.arg(_seconds).arg(QObject::tr("seconds"));
+  } else if (_seconds < SECONDS_IN_HOUR) {
+    return resTempate.arg(_seconds / SECONDS_IN_MINUTE).arg(QObject::tr("minutes"));
+  } else if (_seconds < SECONDS_IN_DAY) {
+    return resTempate.arg(_seconds / SECONDS_IN_HOUR).arg(QObject::tr("hours"));
+  } else if (_seconds < SECONDS_IN_MONTH) {
+    return resTempate.arg(_seconds / SECONDS_IN_DAY).arg(QObject::tr("days"));
+  } else if (_seconds < SECONDS_IN_YEAR) {
+    return resTempate.arg(_seconds / SECONDS_IN_MONTH).arg(QObject::tr("months"));
+  } else {
+    return resTempate.arg(_seconds / SECONDS_IN_YEAR).arg(QObject::tr("years"));
   }
+
   return QString();
 }
 
@@ -35,8 +53,8 @@ QString monthsToBlocks(int _months) {
 
 DepositsFrame::DepositsFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::DepositsFrame), m_depositModel(new DepositListModel) {
   m_ui->setupUi(this);
-  m_ui->m_timeSpin->setMinimum(3);
-  m_ui->m_timeSpin->setMaximum(3);
+  m_ui->m_timeSpin->setMinimum(CurrencyAdapter::instance().getDepositMinTerm());
+  m_ui->m_timeSpin->setMaximum(CurrencyAdapter::instance().getDepositMaxTerm());
   m_ui->m_timeSpin->setSuffix(QString(" %1").arg(tr("Months")));
   m_ui->m_amountSpin->setSuffix(" " + CurrencyAdapter::instance().getCurrencyTicker().toUpper());
   m_ui->m_amountSpin->setMinimum(CurrencyAdapter::instance().formatAmount(CurrencyAdapter::instance().getDepositMinAmount()).toDouble());
@@ -77,8 +95,10 @@ DepositsFrame::DepositsFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::D
   } while( a < 13 );  
   
 
-  connect(&WalletAdapter::instance(), &WalletAdapter::walletActualDepositBalanceUpdatedSignal, this, &DepositsFrame::actualDepositBalanceUpdated, Qt::QueuedConnection);
-  connect(&WalletAdapter::instance(), &WalletAdapter::walletPendingDepositBalanceUpdatedSignal, this, &DepositsFrame::pendingDepositBalanceUpdated, Qt::QueuedConnection);
+connect(&WalletAdapter::instance(), &WalletAdapter::walletActualDepositBalanceUpdatedSignal,
+  this, &DepositsFrame::actualDepositBalanceUpdated, Qt::QueuedConnection);
+  connect(&WalletAdapter::instance(), &WalletAdapter::walletPendingDepositBalanceUpdatedSignal,
+  this, &DepositsFrame::pendingDepositBalanceUpdated, Qt::QueuedConnection);
   connect(&WalletAdapter::instance(), &WalletAdapter::walletCloseCompletedSignal, this, &DepositsFrame::reset, Qt::QueuedConnection);
   reset();
 }
@@ -122,22 +142,16 @@ void DepositsFrame::depositClicked() {
   quint32 term = m_ui->m_timeSpin->value();
   WalletAdapter::instance().deposit(term, amount, CurrencyAdapter::instance().getMinimumFee(), 0);
 }
-/* ------------------------------------------------------------------------------------------- */
 
 void DepositsFrame::depositParamsChanged() {
   quint64 amount = CurrencyAdapter::instance().parseAmount(m_ui->m_amountSpin->cleanText());
-  quint32 term = m_ui->m_timeSpin->value() * 43200;
+  quint32 term = m_ui->m_timeSpin->value();
   
-  quint64 interest = CurrencyAdapter::instance().calculateInterest(amount, term);
-  qreal termRate = DepositModel::calculateRate(amount, interest);
+quint64 interest = CurrencyAdapter::instance().calculateInterest(amount, term);
+  qreal rate = DepositModel::calculateRate(amount, interest);
   m_ui->m_interestLabel->setText(QString("+ %1 %2 (%3 %)").arg(CurrencyAdapter::instance().formatAmount(interest)).
-    arg(CurrencyAdapter::instance().getCurrencyTicker().toUpper()).arg(QString::number(termRate * 100, 'f', 2)));
-
-  /* draw deposit graphs */
-
-
+    arg(CurrencyAdapter::instance().getCurrencyTicker().toUpper()).arg(QString::number(rate * 100, 'f', 2)));
 }
-
 void DepositsFrame::showDepositDetails(const QModelIndex& _index) {
   if (!_index.isValid()) {
     return;
@@ -150,8 +164,9 @@ void DepositsFrame::showDepositDetails(const QModelIndex& _index) {
 
 
 void DepositsFrame::timeChanged(int _value) {
-  m_ui->m_nativeTimeLabel->setText(monthsToBlocks(m_ui->m_timeSpin->value()));
+  m_ui->m_nativeTimeLabel->setText(secondsToNativeTime(_value * CurrencyAdapter::instance().getDifficultyTarget()));
 }
+
 
 void DepositsFrame::withdrawClicked() {
   QModelIndexList unlockedDepositIndexList = DepositModel::instance().match(DepositModel::instance().index(0, 0),
