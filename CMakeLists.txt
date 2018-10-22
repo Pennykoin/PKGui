@@ -271,7 +271,7 @@ if (APPLE)
     set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}.-${VERSION_RELEASE}")
 elseif (UNIX)
     install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION bin)
-    install(FILES src/QTpenny.desktop DESTINATION share/applications)
+    install(FILES src/PKGui.desktop DESTINATION share/applications)
     install(FILES src/images/cryptonote.png DESTINATION share/pixmaps RENAME pennykoin.png)
 
 
