@@ -127,7 +127,7 @@ void DepositsFrame::reset() {
 
 void DepositsFrame::allButtonClicked() {
   double amount = (double)WalletAdapter::instance().getActualBalance() - (double)CurrencyAdapter::instance().getMinimumFee();
-  m_ui->m_amountSpin->setValue(amount / 1000000);
+  m_ui->m_amountSpin->setValue(amount / 100);
 }
 
 /* --------------------------------- CREATE A NEW DEPOSIT ------------------------------------- */
