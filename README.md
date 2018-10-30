@@ -12,4 +12,4 @@
    
    
    
-   Build directions will be posted in this space.
+   To build on ubuntu 16.04 or earlier you MUST install https://download.qt.io/archive/qt/5.6/5.6.3/ , the version of QT in ubuntu repos is too old for some features.
