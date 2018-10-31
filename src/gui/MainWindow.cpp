@@ -464,18 +464,20 @@ void MainWindow::encryptWallet() {
       error = !WalletAdapter::instance().changePassword(oldPassword, newPassword);
     } while (error);
   } else {
-    NewPasswordDialog dlg(this);
-    if (dlg.exec() == QDialog::Accepted) {
-      QString password = dlg.getPassword();
-      if (password.isEmpty()) {
-        return;
-      }
-
-      //encryptedFlagChanged(WalletAdapter::instance().changePassword("", password));
-    }
+      NewPasswordDialog dlg(this);
+      bool error = false;
+      do {
+          if (dlg.exec() == QDialog::Accepted) {
+            QString password = dlg.getPassword();
+            if (password.isEmpty()) {
+              return;
+            }
+            error = !WalletAdapter::instance().changePassword("", password);
+          }
+      } while (error);
   }
 }
-
+  
 void MainWindow::aboutQt() {
   QMessageBox::aboutQt(this);
 }
